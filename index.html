@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Matematika O'qitish Metodikasi · 50 savol</title>
+    <title>Differensial Geometriya va Topologiya · 50 savol</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -156,7 +156,7 @@
             <div class="progress-bar" id="progress">Savol 1 / 50</div>
             <div class="progress-bar score-display" id="scoreDisplay">✅ 0</div>
         </div>
-        <div class="section-badge" id="sectionBadge">Matematika O'qitish Metodikasi</div>
+        <div class="section-badge" id="sectionBadge">Differensial Geometriya va Topologiya</div>
         <div class="question-text" id="question"></div>
         <div class="options-container" id="options"></div>
         <div class="next-btn-container">
@@ -166,56 +166,56 @@
 
     <script>
         const QUIZ_DATA = [
-            { q: "|x+1|+|x-3|=8 tenglama haqida qaysi mulohaza to'g'ri?", opts: ["Ildizlari turli ishorali", "Faqat bitta ildizi bor", "Har ikkala ildiz manfiy", "Har ikkala ildiz musbat"], correct: 0 },
-            { q: "{ax+by=6, bx+ay=6} sistema x=3, y=2 yechimga ega bo'lsa a?", opts: ["2", "4.5", "5.7", "3.3"], correct: 0 },
-            { q: "x^{lg25} + 25^{lgx} = 10 tenglamani yeching:", opts: ["√10", "10", "1", "100"], correct: 0 },
-            { q: "x²-10x+q=0 ildizlaridan biri 5 ga teng. Koeffitsientlar yig'indisi?", opts: ["16", "15.5", "36.7", "35.7"], correct: 0 },
-            { q: "ln(x-1)=x-3 tenglamaning nechta ildizi bor?", opts: ["2", "1", "3", "Ildizi yo'q"], correct: 0 },
-            { q: "|x²-3|=a tenglama a ning qanday qiymatida uchta ildizga ega?", opts: ["3", "9.3", "-2.6", "-3.6"], correct: 0 },
-            { q: "√(5-x²) > x-1 tengsizlikni qanoatlantiruvchi butun sonlar nechta?", opts: ["4", "5", "3", "1"], correct: 0 },
-            { q: "log_{1/√2}((4x-1)/(4x+8)) < 0 tengsizlikni yeching:", opts: ["(-∞;-2)", "(1/4;∞)", "(2;∞)", "(-2;1/4)"], correct: 0 },
-            { q: "√a-√b=3 va a-b=24 bo'lsa, √a+√b?", opts: ["8", "4.5", "5.5", "6.7"], correct: 0 },
-            { q: "b va c ning qanday qiymatlarida M(-8;-23) nuqta y=x²+bx+c parabolaning uchi?", opts: ["b=16,c=41", "b=41,c=16", "b=-16,c=41", "b=34,c=14"], correct: 0 },
-            { q: "594 va 378 ning umumiy bo'luvchilari nechta?", opts: ["8", "9", "7", "6"], correct: 0 },
-            { q: "6 ga karrali ikki xonali natural sonlar nechta?", opts: ["15", "13", "11", "12"], correct: 0 },
-            { q: "Algebra fanining asoschisi?", opts: ["Muhammad al-Xorazmiy", "A.R.Beruniy", "A.N.Forobiy", "Ali Qushchi"], correct: 0 },
-            { q: "Algoritm termini qaysi olim nomidan olingan?", opts: ["Al-Xorazmiy", "Al-Farg'oniy", "A.R.Beruniy", "Ali Qushchi"], correct: 0 },
-            { q: "An'anaviy o'qitish usullari?", opts: ["Suhbat, hikoya, mustaqil ish", "Hikoya (ma'ruza)", "Hikoya va mustaqil ish", "Suhbat va mustaqil ish"], correct: 0 },
-            { q: "An'anaviy ta'limning kamchiligi?", opts: ["Aqliy, ijodiy bilim olishni yetarli ta'minlamaydi", "Zamonaviy talablarga javob bermaydi", "Faqat darslikka asoslanadi", "O'quvchining maqsadlari inobatga olinmaydi"], correct: 0 },
-            { q: "Asosiy ta'lim shakli?", opts: ["Dars", "Ekskursiya", "To'garak", "Laboratoriya"], correct: 0 },
-            { q: "Pedagogik texnologiya nima?", opts: ["O'quv-tarbiyaviy jarayonni tizimli ta'minlaydigan tadbirlar", "Tarbiya usuli", "Ta'lim texnologiyasi", "Ishontirish uslubi"], correct: 0 },
-            { q: "10 m balandlikdagi simyog'ochga shilliqqurt kun 5 m ko'tarilib, kechasi 4 m tushsa, necha kunda uchiga chiqadi?", opts: ["6", "5", "4", "3"], correct: 0 },
-            { q: "Butun fan bo'yicha yutuqlarni aniqlash va baholash?", opts: ["Yakuniy nazorat", "Joriy nazorat", "Oraliq nazorat", "Tashqi nazorat"], correct: 0 },
-            { q: "Dars konspektida qanday maqsadlar ko'rsatiladi?", opts: ["Ta'limiy, tarbiyaviy, rivojlantiruvchi", "Ilmiy, tarbiyaviy", "Ta'limiy, rivojlantiruvchi", "Ta'limiy, ijodiy"], correct: 0 },
-            { q: "Davlat ta'lim standarti asosida belgilangan nashr?", opts: ["Darslik", "O'quv qo'llanma", "Ma'ruzalar kursi", "Ilmiy adabiyot"], correct: 0 },
-            { q: "Didaktik tamoyillar?", opts: ["Ta'limda asoslaniladigan qonun-qoidalar", "Pedagogik texnologiyalar", "Metodik sistema", "Nazariy bilimlar tizimi"], correct: 0 },
-            { q: "Eng kichik natural son?", opts: ["1", "2", "3", "0"], correct: 0 },
-            { q: "Eng kichik toq tub son?", opts: ["3", "1", "2", "0"], correct: 0 },
-            { q: "Eng kichik tub son?", opts: ["2", "1", "3", "0"], correct: 0 },
-            { q: "Evklidning 'Negizlar' asari nechta kitobdan iborat?", opts: ["13", "11", "17", "12"], correct: 0 },
-            { q: "Go'sht qaynatilganda 40% yo'qotadi. 6 kg pishgan go'sht uchun qancha kerak?", opts: ["10 kg", "9 kg", "8 kg", "7 kg"], correct: 0 },
-            { q: "Kompyuter texnologiyasiga asoslangan adabiyot?", opts: ["Elektron qo'llanma", "Elektron adabiyot", "Elektron to'plam", "Ma'lumotlar banki"], correct: 0 },
-            { q: "Kuzatish va tajriba qaysi fanlarni o'rganishda asosiy?", opts: ["Fizika, kimyo, biologiya", "Ekologiya, matematika", "Ona-tili, chet-tili", "Matematika, mehnat"], correct: 0 },
-            { q: "Matematik jadvallar turlari?", opts: ["Illyustrativ, ishchi, ma'lumot beruvchi", "Illyustrativ, ishchi", "Ma'lumot beruvchi", "Ishchi, ma'lumot beruvchi"], correct: 0 },
-            { q: "O'quvchilar faolligini oshirish omili?", opts: ["Mustaqil ishlar", "Ekskursiya", "Ko'rgazmali qurollar", "Uyga vazifa"], correct: 0 },
-            { q: "Sinf o'quvchilari necha guruhga bo'linadi?", opts: ["Uchta", "To'rtta", "Ikkita", "Ikkita (yaxshi va o'rta)"], correct: 0 },
-            { q: "Matematik xulosa chiqarish turlari?", opts: ["Induksiya, deduksiya, analogiya", "Induksiya, deduksiya", "Deduksiya, analogiya", "Induksiya, analogiya"], correct: 0 },
-            { q: "Matematika darsi turlari?", opts: ["Yangi mavzu, mustahkamlash, tekshirish, takrorlash", "Mustahkamlash", "Tekshirish", "Takrorlash"], correct: 0 },
-            { q: "Darsning ta'limiy maqsadi?", opts: ["Bilim, ko'nikma, malaka shakllantirish", "Zamonaviy bilim berish", "Dunyoqarash shakllantirish", "Tayyor bilimlarni yetkazish"], correct: 0 },
-            { q: "Matematika o'qitish metodikasi bo'limlari?", opts: ["Umumiy, xususiy, maxsus", "Umumiy, oliy, o'rta", "Oliy, o'rta, boshlang'ich", "Umumiy, maktab, maktabgacha"], correct: 0 },
-            { q: "Matematika o'qitish usullari natijasida nima tarkib toptiriladi?", opts: ["Bilim, ko'nikma va malakalar", "Bilim va tushuncha", "Bilim, malaka va ko'nikma", "Ko'nikma va malakalar"], correct: 0 },
-            { q: "Masalaning funksiyalari?", opts: ["Didaktik, bilish, rivojlantirish", "Didaktik, tarbiyaviy", "Rivojlantirish, bilish", "Didaktik, rivojlantirish"], correct: 0 },
-            { q: "Matematika o'qitishning ilmiy usullari?", opts: ["Kuzatish, tajriba, taqqoslash, umumlashtirish", "Induksiya, deduksiya", "Taqqoslash, umumlashtirish", "Kuzatish va tajriba"], correct: 0 },
-            { q: "'Matematika qiroli' nomini olgan nemis matematigi?", opts: ["Gauss", "Vershtras", "Leybnits", "Gilbert"], correct: 0 },
-            { q: "Matematikadan uy vazifasini berishdan maqsad?", opts: ["Mustaqil ishlash, mustahkamlash, oila bilan aloqa", "Faqat mustaqil ish", "Faqat mustahkamlash", "Ko'rgazma qurol tayyorlash"], correct: 0 },
-            { q: "Didaktik tamoyillar to'liq ko'rsatilgan javob?", opts: ["Ilmiylik, ko'rgazmalilik, onglilik, faollik, tizimlilik", "Ilmiylik, ko'rsatmalilik", "Ilmiylik, onglilik", "Onglilik, faollik"], correct: 0 },
-            { q: "Metodik sistema komponentalari?", opts: ["Maqsad, mazmun, usullar, vositalar, shakllar", "Maqsad, mazmun", "Maqsad, mazmun, usullar, vositalar", "Usullar, vositalar, shakllar"], correct: 0 },
-            { q: "Uchta klassik masaladan keyingi eng mashhur muammo?", opts: ["Ferma teoremasi", "Viet teoremasi", "Gilbert muammosi", "Eyler muammosi"], correct: 0 },
-            { q: "Ta'rifda qanday tushunchalar orasidagi munosabat ko'rsatiladi?", opts: ["Ta'riflanuvchi va ta'riflovchi", "Ta'riflanuvchi", "Ta'riflovchi", "Umuman munosabat ko'rsatilmaydi"], correct: 0 },
-            { q: "Umumiy o'rta ta'lim maktablarida V-IX sinflarda matematika darsi uchun necha soat ajratilgan?", opts: ["5", "6", "4", "7"], correct: 0 },
-            { q: "Tushunchalar asosida hosil qilingan matematik fikrni tasdiqlash yoki inkor qilish nima deyiladi?", opts: ["Matematik hukm", "Mulohaza", "Matematik tushuncha", "Tasavvur"], correct: 0 },
-            { q: "Matematika o'qitishda masalaning funksiyalari qanday?", opts: ["Didaktik, bilish, rivojlantirish", "Didaktik, tarbiyaviy", "Rivojlantirish, bilish", "Didaktik, rivojlantirish"], correct: 0 },
-            { q: "Matematik ta'limni amalga oshirishda qanday xulosa chiqarishdan keng foydalaniladi?", opts: ["Induksiya, deduksiya, analogiya", "Induksiya, deduksiya", "Deduksiya, analogiya", "Induksiya, analogiya"], correct: 0 }
+            { q: "Koordinatalar sistemasida ort deb qanday vektorga aytiladi?", opts: ["Koordinata o'qi bilan yo'nalishi bir xil va moduli 1", "Moduli 1 ga teng", "Moduli 0 ga teng", "Yo'nalishi teskari"], correct: 0 },
+            { q: "Vektor funksiyaning geometrik obraziga mos chiziq?", opts: ["Godograf", "Chiziq", "Uzluksiz chiziq", "Buralish"], correct: 0 },
+            { q: "Chiziqning silliq bo'lmagan nuqtasi ... deyiladi.", opts: ["Maxsus nuqtasi", "Silliq nuqtasi", "Urinma nuqtasi", "Sinish nuqtasi"], correct: 0 },
+            { q: "Yopishma tekislikka ... bo'lgan normal binormal deyiladi.", opts: ["Perpendikulyar", "Parallel", "Kollinear", "Urinma"], correct: 0 },
+            { q: "Yopishma tekislikda ... normal bosh normal deyiladi.", opts: ["Yotuvchi", "Perpendikulyar", "Yotmagan", "Kollinear"], correct: 0 },
+            { q: "Agar to'plam tekislikdagi bir bog'lamli sohaning gomeomorfizmdagi obrazi bo'lsa, ... sirt deyiladi.", opts: ["Sodda", "Murakkab", "Lokal sodda", "Silliq"], correct: 0 },
+            { q: "Silliq elementar egri chiziq nima?", opts: ["Elementar egri chiziqni differensiallanuvchi funksiyalar yordamida parametrlash mumkin", "Elementar egri chiziqni uzluksiz", "Funksiyalar yordamida parametrlash mumkin", "Yuqoridagilarning biri"], correct: 0 },
+            { q: "Har qanday sodda egri chiziq yo elementar egri chiziq yoki ...", opts: ["Ellipsga gomeomorf", "Giperbolaga gomeomorf", "Parabolaga gomeomorf", "Barcha javoblar to'g'ri"], correct: 0 },
+            { q: "Quyidagi chiziqlardan qaysi biri elementar egri chiziqqa misol?", opts: ["Parabola", "Giperbola", "Ellips", "Hammasi"], correct: 0 },
+            { q: "Quyidagi chiziqlardan qaysi biri sodda egri chiziqqa misol?", opts: ["Ellips", "Kesishuvchi ikkita to'g'ri chiziq", "Giperbola", "Hammasi"], correct: 0 },
+            { q: "Regulyar egri chiziq o'ziga tegishli har qanday nuqta atrofida ...", opts: ["To'g'rilanuvchi", "Uzluksiz", "Differensiallanuvchi", "Chegaralanuvchi"], correct: 0 },
+            { q: "Chiziqning nuqtasidagi normal tekisligi deb ...", opts: ["Nuqtada o'tkazilgan urinmaga perpendikulyar tekislik", "Nuqtada o'tkazilgan urinmaga parallel tekislik", "Nuqtada o'tkazilgan urinmaga aytiladi", "Nuqtada o'tkazilgan tekislikka aytiladi"], correct: 0 },
+            { q: "Bosh normal deb ... aytiladi.", opts: ["Yopishma tekislikda yotuvchi normalga", "Yopishma tekislikka perpendikulyar normalga", "Yopishma tekislikka parallel tekislikda", "Urinmaga perpendikulyar to'g'ri chiziqqa"], correct: 0 },
+            { q: "Boshnormal va binormaldan o'tuvchi tekislik ... deyiladi.", opts: ["Normal tekislik", "To'g'rilovchi tekislik", "Yopishma tekislik", "Silliq tekislik"], correct: 0 },
+            { q: "To'g'rilovchi tekislik deb ... aytiladi.", opts: ["Urinma bilan binormaldan o'tuvchi tekislik", "Boshnormal va binormaldan o'tuvchi tekislik", "Urinma bilan boshnormaldan o'tuvchi tekislik", "Urinmaga perpendikulyar tekislik"], correct: 0 },
+            { q: "Kamida ikki marta uzluksiz differensiallanuvchi chiziqning har bir nuqtasida ... mavjud.", opts: ["Egriligi", "Buralishi", "Urinmasi", "Binormali"], correct: 0 },
+            { q: "Chiziqning buralishi nolga teng bo'lish sharti?", opts: ["Tekislikda yotsa", "Fazoda yotsa", "To'g'ri chiziqda yotsa", "Egri chiziqda yotsa"], correct: 0 },
+            { q: "Soha deb ... aytiladi.", opts: ["Tekislikdagi ochiq doiraga gomeomorf to'plam", "Tekislikdagi yopiq doiraga gomeomorf", "Tekislikdagi yopiq doiraga", "Barcha javoblar to'g'ri"], correct: 0 },
+            { q: "Har qanday elementar sirt ... sirtdir.", opts: ["Sodda", "Silliq", "Qavariq", "Murakkab"], correct: 0 },
+            { q: "Sodda, lekin elementar bo'lmagan sirt?", opts: ["Sfera", "Elliptik paraboloid", "Doira", "Tekislik"], correct: 0 },
+            { q: "Har qanday tekislik ... sirtdir.", opts: ["Barcha javoblar to'g'ri", "Silliq", "Sodda", "Elementar"], correct: 0 },
+            { q: "Elementar sirt bo'lmagan?", opts: ["Silindr", "Tekislik", "Elliptik paraboloid", "Giperbolik paraboloid"], correct: 0 },
+            { q: "Bosh yo'nalishga mos keluvchi normal egriliklar ... deyiladi.", opts: ["Bosh egriliklar", "Birlik egriliklar", "Normal", "Egriliklar"], correct: 0 },
+            { q: "Matritsaning xos sonlari har xil bo'lganda xos vektorlar ...", opts: ["O'zaro perpendikulyar", "O'zaro parallel", "O'zaro teskari", "O'zaro teng"], correct: 0 },
+            { q: "Xausdorf fazosida har qanday yaqinlashuvchi ketma-ketlikning limiti ...", opts: ["Yagona", "Cheksiz ko'p", "Mavjud emas", "Chekli"], correct: 0 },
+            { q: "Bog'lanishli to'plamning yopig'i ...", opts: ["Bog'lanishli to'plam", "Bog'lanishsiz to'plam", "Bog'lanishli bo'lishi ham bo'lmasligi ham mumkin", "Kompakt to'plam"], correct: 0 },
+            { q: "To'g'ri tasdiqni toping:", opts: ["Bog'lanishlilik komponentasi yopiq to'plam", "Bog'lanishlilik komponentasi ochiq to'plam", "Ochiq ham yopiq ham bo'lishi mumkin", "Ochiq bo'lishi va yopiq bo'lmasligi mumkin"], correct: 0 },
+            { q: "Xausdorf fazosidagi har qanday kompakt to'plam ...", opts: ["Yopiq to'plam", "Bog'lanishli to'plam", "Bog'lanishli", "Ochiq to'plam"], correct: 0 },
+            { q: "Kompakt to'plamning uzluksiz akslantirishdagi obrazi ...", opts: ["Kompakt to'plam bo'ladi", "Bog'lanishli", "Yopiq", "Ochiq"], correct: 0 },
+            { q: "Topologik fazo tushunchasini birinchi marta kim kiritgan?", opts: ["F. Hausdorf", "G. Kantor", "A. Puankare", "D. Gilbert"], correct: 0 },
+            { q: "Metrik fazoda yaqinlashuvchi ketma-ketlikning limiti ...", opts: ["Yagona", "Ikkita", "Cheksiz ko'p", "Mavjud emas"], correct: 0 },
+            { q: "To'liq metrik fazo qanday xossaga ega?", opts: ["Har bir fundamental ketma-ketlik yaqinlashuvchi", "Har bir yaqinlashuvchi ketma-ketlik fundamental", "Chegaralangan", "Kompakt"], correct: 0 },
+            { q: "Evklid fazosi Rⁿ qanday fazo?", opts: ["To'liq metrik fazo", "To'liq emas", "Diskret", "Kompakt"], correct: 0 },
+            { q: "Xausdorf fazosida ixtiyoriy ikki nuqtani ...", opts: ["Ajratish mumkin", "Ajratish mumkin emas", "Ba'zan ajratish mumkin", "Hech qachon ajratish mumkin emas"], correct: 0 },
+            { q: "Bir nuqtali to'plam qanday to'plam?", opts: ["Yopiq", "Ochiq", "Ham ochiq ham yopiq", "Na ochiq na yopiq"], correct: 0 },
+            { q: "Ochiq to'plamning to'ldiruvchisi qanday to'plam?", opts: ["Yopiq", "Ochiq", "Ham ochiq ham yopiq", "Na ochiq na yopiq"], correct: 0 },
+            { q: "Yopiq to'plamning to'ldiruvchisi qanday to'plam?", opts: ["Ochiq", "Yopiq", "Ham ochiq ham yopiq", "Na ochiq na yopiq"], correct: 0 },
+            { q: "Kompakt to'plamning xossasi?", opts: ["Chegaralangan va yopiq", "Chegaralangan", "Yopiq", "Ochiq"], correct: 0 },
+            { q: "R da kompakt to'plam qanday bo'ladi?", opts: ["Chegaralangan va yopiq", "Chegaralangan", "Yopiq", "Ochiq"], correct: 0 },
+            { q: "Metrik fazoda izolyatsiyalangan nuqta ...", opts: ["O'ziga tegishli ochiq to'plam mavjud", "O'ziga tegishli yopiq to'plam mavjud", "Chegaralangan", "Kompakt"], correct: 0 },
+            { q: "Silliq sirt qanday xossaga ega?", opts: ["Har bir nuqtada urinma tekislikka ega", "Har bir nuqtada urinma chiziqqa ega", "Har bir nuqtada normalga ega", "Barchasi"], correct: 0 },
+            { q: "Regulyar sirt nima?", opts: ["Har bir nuqtada urinma tekislikka ega va silliq", "Silliq", "Uzluksiz", "Differensiallanuvchi"], correct: 0 },
+            { q: "Sirtning birinchi fundamental formasi nima?", opts: ["Metrikani aniqlaydi", "Egrilikni aniqlaydi", "Buralishni aniqlaydi", "Normalni aniqlaydi"], correct: 0 },
+            { q: "Sirtning ikkinchi fundamental formasi nima?", opts: ["Egrilikni aniqlaydi", "Metrikani aniqlaydi", "Buralishni aniqlaydi", "Normalni aniqlaydi"], correct: 0 },
+            { q: "Gauss egriligi K = ?", opts: ["(LN-M²)/(EG-F²)", "(EG-F²)/(LN-M²)", "(LN+M²)/(EG-F²)", "(EG+F²)/(LN-M²)"], correct: 0 },
+            { q: "O'rtacha egrilik H = ?", opts: ["(EN-2FM+GL)/(2(EG-F²))", "(EN+2FM+GL)/(2(EG-F²))", "(EN-2FM+GL)/(EG-F²)", "(EN+2FM+GL)/(EG-F²)"], correct: 0 },
+            { q: "Sfera sirtining Gauss egriligi?", opts: ["1/R²", "-1/R²", "0", "R²"], correct: 0 },
+            { q: "Tekislik sirtining Gauss egriligi?", opts: ["0", "1", "-1", "∞"], correct: 0 },
+            { q: "Silindr sirtining Gauss egriligi?", opts: ["0", "1/R²", "-1/R²", "R²"], correct: 0 },
+            { q: "Sirtning geodezik chiziqlari qanday xossaga ega?", opts: ["Eng qisqa masofa", "Eng uzoq masofa", "Egriligi nol", "Buralishi nol"], correct: 0 }
         ];
 
         function shuffle(arr) {
@@ -242,7 +242,7 @@
             const q = questions[current];
             progressEl.textContent = `Savol ${current+1} / ${questions.length}`;
             scoreDisplay.textContent = `✅ ${correct}`;
-            sectionBadge.textContent = "Matematika O'qitish Metodikasi";
+            sectionBadge.textContent = "Differensial Geometriya va Topologiya";
             questionEl.textContent = q.q;
             optionsEl.innerHTML = '';
             const opts = q.opts.map((t, i) => ({ text: t, isCorrect: i === q.correct }));
